@@ -57,8 +57,8 @@
                     <name>disabledContentBidiFormatStr</name>
                 </ex-property>
             </list-property>
-            <property name="odaDriverClass">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-            <property name="odaURL">jdbc:sqlserver://192.168.1.35;database=OTMM</property>
+            <property name="odaDriverClass">com.actuate.jdbc.sqlserver.SQLServerDriver</property>
+            <property name="odaURL">jdbc:actuate:sqlserver://192.168.1.35;database=OTMM</property>
             <property name="odaUser">OTMM</property>
             <encrypted-property name="odaPassword" encryptionID="jce">1219f1ab79ba269aa295eb2d060eeee5</encrypted-property>
         </oda-data-source>
