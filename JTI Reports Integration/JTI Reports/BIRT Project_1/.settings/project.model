@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.actuate.istudio.analysis.model:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.actuate.istudio.analysis.model="http:///com.actuate.istudio.analysis.model.ecore" name="BIRT Project_1">
+  <files xsi:type="com.actuate.istudio.analysis.model:DataDesign" name="new_datadesign_1.datadesign" path="/BIRT Project_1/Data Objects/new_datadesign_1.datadesign">
+    <targetDashboardsMap key="//@files.1" value="1"/>
+    <dataSets name="Data Set">
+      <columns name="ID"/>
+      <columns name="VALUE"/>
+      <columns name="DESCRIPTION"/>
+    </dataSets>
+  </files>
+  <files xsi:type="com.actuate.istudio.analysis.model:Dashboard" name="new_dashboard_1.dashboard" path="/BIRT Project_1/Dashboards/new_dashboard_1.dashboard">
+    <dataDesignMap key="//@files.0" value="1"/>
+  </files>
+</com.actuate.istudio.analysis.model:Project>
