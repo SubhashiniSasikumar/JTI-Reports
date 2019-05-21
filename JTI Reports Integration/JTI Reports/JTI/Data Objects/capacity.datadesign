@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datamart xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.8.0.v201804241733</property>
+    <list-property name="userProperties">
+        <structure>
+            <property name="name">Data Cube.Data Set.x</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+        <structure>
+            <property name="name">Data Cube.Data Set.y</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+        <structure>
+            <property name="name">Data Cube.Group1.NewTabularHierarchy1.x</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+        <structure>
+            <property name="name">Data Cube.Group1.NewTabularHierarchy1.y</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+        <structure>
+            <property name="name">Data Cube.Data Set.width</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+        <structure>
+            <property name="name">Data Cube.Data Set.height</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+    </list-property>
+    <property name="Data Cube.Data Set.x">231</property>
+    <property name="Data Cube.Data Set.y">18</property>
+    <property name="Data Cube.Group1.NewTabularHierarchy1.x">14</property>
+    <property name="Data Cube.Group1.NewTabularHierarchy1.y">23</property>
+    <property name="Data Cube.Data Set.width">150</property>
+    <property name="Data Cube.Data Set.height">200</property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="OTMM" id="2">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+            <property name="odaURL">jdbc:sqlserver://192.168.1.35;database=OTMM</property>
+            <property name="odaUser">OTMM</property>
+            <encrypted-property name="odaPassword" encryptionID="jce">1219f1ab79ba269aa295eb2d060eeee5</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="5">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">ID</property>
+                    <property name="alias">ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">ID</text-property>
+                    <text-property name="heading">ID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">VALUE</property>
+                    <property name="alias">VALUE</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">VALUE</text-property>
+                    <text-property name="heading">VALUE</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">VALUE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">OTMM</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">ID</property>
+                    <property name="nativeName">ID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">VALUE</property>
+                    <property name="nativeName">VALUE</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select a.ID,
+       a.VALUE
+             
+from JTI_ARTWORK_SUPPLIER_LKTB a
+]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Asset Table" id="16">
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">Artwork Supplier</property>
+                    <property name="dataType">integer</property>
+                    <property name="aggregateFunction">COUNT</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["TASK_GROUP_NAME"]</expression>
+                        </structure>
+                    </list-property>
+                    <expression name="filterExpr" type="javascript">row["TASK_GROUP_NAME"]==("DESIGNER") &amp;&amp; (row["TASK_STATUS"]==("DEFINED") || row["TASK_STATUS"]==("INPROGRESS") || row["TASK_STATUS"]==("COMPLETED") || row["TASK_STATUS"]==("APPROVED/COMPLETED"))</expression>
+                </structure>
+                <structure>
+                    <property name="name">Capacity Booked</property>
+                    <property name="dataType">integer</property>
+                    <property name="aggregateFunction">COUNT</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["TASK_STATUS"]</expression>
+                        </structure>
+                    </list-property>
+                    <expression name="filterExpr" type="javascript">row["TASK_GROUP_NAME"]==("DESIGNER") &amp;&amp; (row["TASK_STATUS"]==("DEFINED") || row["TASK_STATUS"]==("INPROGRESS"))</expression>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">TASK_GROUP_NAME</property>
+                    <property name="alias">TASK_GROUP_NAME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">TASK_GROUP_NAME</text-property>
+                    <text-property name="heading">TASK_GROUP_NAME</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">TASK_STATUS</property>
+                    <property name="alias">TASK_STATUS</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">TASK_STATUS</text-property>
+                    <text-property name="heading">TASK_STATUS</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">LAYOUT_SUPPLIER</property>
+                    <property name="alias">LAYOUT_SUPPLIER</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">LAYOUT_SUPPLIER</text-property>
+                    <text-property name="heading">LAYOUT_SUPPLIER</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Artwork Supplier</property>
+                    <property name="alias">Artwork Supplier</property>
+                    <property name="analysis">attribute</property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Capacity Booked</property>
+                    <property name="alias">Capacity Booked</property>
+                    <property name="analysis">attribute</property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">TASK_GROUP_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">TASK_STATUS</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">LAYOUT_SUPPLIER</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">Artwork Supplier</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">Capacity Booked</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">OTMM</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">TASK_GROUP_NAME</property>
+                    <property name="nativeName">TASK_GROUP_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">TASK_STATUS</property>
+                    <property name="nativeName">TASK_STATUS</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">LAYOUT_SUPPLIER</property>
+                    <property name="nativeName">LAYOUT_SUPPLIER</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select 
+  TASK_GROUP_NAME,
+  TASK_STATUS,
+  'JTI' as LAYOUT_SUPPLIER
+  
+from MPM_ASSET_TABLE]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <cubes>
+        <tabular-cube name="Data Cube" id="96">
+            <property name="dataSet">Data Set</property>
+        </tabular-cube>
+    </cubes>
+    <property name="linkedDataModels">
+        <linked-data-model name="Data Model" id="17">
+            <property name="aliasDataSets">
+                <alias-data-set name="Data Set" id="25">
+                    <property name="originDataSet">Data Set</property>
+                </alias-data-set>
+                <alias-data-set name="Asset Table" id="77">
+                    <property name="originDataSet">Asset Table</property>
+                </alias-data-set>
+            </property>
+            <property name="columnLinks">
+                <column-link id="84">
+                    <property name="leftAliasDataSet">Data Model/Data Set</property>
+                    <property name="rightAliasDataSet">Data Model/Asset Table</property>
+                    <property name="type">left-out</property>
+                    <property name="columnLinkDetails">
+                        <column-link-detail id="85">
+                            <structure name="leftColumn">
+                                <property name="position">1</property>
+                                <property name="name">ID</property>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure name="rightColumn">
+                                <property name="position">3</property>
+                                <property name="name">LAYOUT_SUPPLIER</property>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </column-link-detail>
+                    </property>
+                    <property name="allowPushdown">false</property>
+                </column-link>
+            </property>
+            <property name="categories">
+                <category name="Data Set" id="18">
+                    <property name="categoryColumns">
+                        <category-column name="ID" id="19">
+                            <property name="aliasDataSet">Data Model/Data Set</property>
+                            <property name="resultSetColumnName">ID</property>
+                        </category-column>
+                        <category-column name="VALUE" id="20">
+                            <property name="aliasDataSet">Data Model/Data Set</property>
+                            <property name="resultSetColumnName">VALUE</property>
+                        </category-column>
+                    </property>
+                </category>
+                <category name="Asset Table" id="78">
+                    <property name="categoryColumns">
+                        <category-column name="TASK_GROUP_NAME" id="79">
+                            <property name="aliasDataSet">Data Model/Asset Table</property>
+                            <property name="resultSetColumnName">TASK_GROUP_NAME</property>
+                        </category-column>
+                        <category-column name="TASK_STATUS" id="80">
+                            <property name="aliasDataSet">Data Model/Asset Table</property>
+                            <property name="resultSetColumnName">TASK_STATUS</property>
+                        </category-column>
+                        <category-column name="LAYOUT_SUPPLIER" id="81">
+                            <property name="aliasDataSet">Data Model/Asset Table</property>
+                            <property name="resultSetColumnName">LAYOUT_SUPPLIER</property>
+                        </category-column>
+                        <category-column name="Artwork Supplier" id="82">
+                            <property name="aliasDataSet">Data Model/Asset Table</property>
+                            <property name="resultSetColumnName">Artwork Supplier</property>
+                        </category-column>
+                        <category-column name="Capacity Booked" id="83">
+                            <property name="aliasDataSet">Data Model/Asset Table</property>
+                            <property name="resultSetColumnName">Capacity Booked</property>
+                        </category-column>
+                    </property>
+                </category>
+            </property>
+            <property name="pushDown">true</property>
+        </linked-data-model>
+    </property>
+</datamart>
