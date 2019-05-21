@@ -762,6 +762,43 @@
                         <section id="160">
                             <property name="width">100%</property>
                             <property name="gadgets">
+                                <gadget name="Gadget_eafbb1ba-da72-478d-9ecd-4fc9ab0389d1" id="226">
+                                    <property name="title">Report - Capacity 1</property>
+                                    <property name="externalGadgetURI">^/Report Designs/Capacity.rptdesign</property>
+                                    <property name="showTitle">true</property>
+                                    <property name="showBorder">true</property>
+                                    <property name="zIndex">4</property>
+                                    <property name="showScrollBar">false</property>
+                                    <property name="caption">
+                                        <gadget-caption id="227">
+                                            <property name="showCaption">true</property>
+                                            <property name="horizontalAlignment">left</property>
+                                            <property name="fontFamily">"Lato"</property>
+                                            <property name="fontSize">18pt</property>
+                                            <property name="fontWeight">normal</property>
+                                            <property name="fontStyle">normal</property>
+                                            <property name="color">#353535</property>
+                                            <property name="textUnderline">none</property>
+                                        </gadget-caption>
+                                    </property>
+                                    <property name="content">
+                                        <data-view id="228">
+                                            <list-property name="userProperties">
+                                                <structure>
+                                                    <property name="name">showViewerToolbar</property>
+                                                    <property name="type">boolean</property>
+                                                </structure>
+                                            </list-property>
+                                            <property name="showViewerToolbar">true</property>
+                                            <property name="gadgetType">viewer</property>
+                                            <property name="externalContentRef">
+                                                <external-element-ref>
+                                                    <property name="sourceFile">^/Report Designs/Capacity.rptdesign</property>
+                                                </external-element-ref>
+                                            </property>
+                                        </data-view>
+                                    </property>
+                                </gadget>
                                 <gadget name="Gadget_7f09bf16-9eb9-4c9f-b443-f8789f21be6c" id="223">
                                     <property name="title">Report - Capacity</property>
                                     <property name="externalGadgetURI">^/Report Designs/Capacity.rptdesign</property>
