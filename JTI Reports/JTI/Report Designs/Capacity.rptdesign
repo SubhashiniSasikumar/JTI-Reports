@@ -14,13 +14,13 @@
         </structure>
     </list-property>
     <data-sources>
-        <data-mart-data-source name="Data Source" id="95">
+        <data-mart-data-source name="Data Source" id="123">
             <property name="datamartURL">Data Objects/capacity</property>
             <property name="accessType">transient</property>
         </data-mart-data-source>
     </data-sources>
     <property name="linkedDataModels">
-        <data-mart-linked-data-model name="Capacity" id="96">
+        <data-mart-linked-data-model name="Capacity" id="124">
             <property name="dataSource">Data Source</property>
             <property name="dataObject">Capacity</property>
         </data-mart-linked-data-model>
@@ -320,7 +320,6 @@
                 </structure>
             </list-property>
             <property name="theme">ThemesReportItems31.Chart-Clean Blue</property>
-            <property name="linkedDataModel">Capacity</property>
         </extended-item>
     </body>
 </report>
