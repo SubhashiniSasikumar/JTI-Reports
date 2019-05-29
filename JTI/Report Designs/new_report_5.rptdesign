@@ -15,12 +15,12 @@
     </list-property>
     <data-sources>
         <data-mart-data-source name="Data Source" id="4">
-            <property name="datamartURL">Data Objects/CapacityTest</property>
+            <property name="datamartURL">Data Objects/new_datadesign_2</property>
             <property name="accessType">transient</property>
         </data-mart-data-source>
     </data-sources>
     <data-sets>
-        <data-mart-data-set name="Reports capacity info" id="5">
+        <data-mart-data-set name="Data Set" id="5">
             <list-property name="columnHints">
                 <structure>
                     <property name="columnName">TASK_GROUP_NAME</property>
@@ -66,10 +66,6 @@
                     <property name="columnName">Artwork Supplier</property>
                     <property name="analysis">measure</property>
                 </structure>
-                <structure>
-                    <property name="columnName">Capacity Booked</property>
-                    <property name="analysis">measure</property>
-                </structure>
             </list-property>
             <structure name="cachedMetaData">
                 <list-property name="resultSet">
@@ -103,15 +99,10 @@
                         <property name="name">Artwork Supplier</property>
                         <property name="dataType">integer</property>
                     </structure>
-                    <structure>
-                        <property name="position">7</property>
-                        <property name="name">Capacity Booked</property>
-                        <property name="dataType">integer</property>
-                    </structure>
                 </list-property>
             </structure>
             <property name="dataSource">Data Source</property>
-            <property name="dataObject">Reports capacity info</property>
+            <property name="dataObject">Data Set</property>
             <list-property name="selectedColumns">
                 <structure>
                     <property name="position">1</property>
@@ -143,11 +134,6 @@
                     <property name="name">Artwork Supplier</property>
                     <property name="dataType">integer</property>
                 </structure>
-                <structure>
-                    <property name="position">7</property>
-                    <property name="name">Capacity Booked</property>
-                    <property name="dataType">integer</property>
-                </structure>
             </list-property>
         </data-mart-data-set>
     </data-sets>
@@ -163,186 +149,8 @@
         </simple-master-page>
     </page-setup>
     <body>
-        <extended-item extensionName="Chart" id="6">
-            <xml-property name="xmlRepresentation"><![CDATA[<ActuateChart version="2.6.1">
- <ChartWithAxes version="2.6.1" type="Bar Chart" subType="Side-by-side">
-  <block>
-   <children _type="TitleBlock">
-    <outline>
-     <color _nil="1"/>
-    </outline>
-    <label>
-     <background _nil="1"/>
-     <outline>
-      <color _nil="1"/>
-     </outline>
-    </label>
-   </children>
-   <children _type="Plot">
-    <outline>
-     <color _nil="1"/>
-    </outline>
-    <clientArea>
-     <outline>
-      <color _nil="1"/>
-     </outline>
-    </clientArea>
-   </children>
-   <children _type="Legend">
-    <outline>
-     <color _nil="1"/>
-    </outline>
-    <clientArea>
-     <outline>
-      <color _nil="1"/>
-     </outline>
-    </clientArea>
-    <separator>
-     <color _nil="1"/>
-    </separator>
-    <title>
-     <background _nil="1"/>
-     <outline>
-      <color _nil="1"/>
-     </outline>
-    </title>
-   </children>
-   <bounds _body="0.0,0.0,572.25,286.125"/>
-   <outline>
-    <color _nil="1"/>
-   </outline>
-  </block>
-  <extendedProperties name="enable.area.alt" value="false"/>
-  <extendedProperties name="enable.drill.category" value="true"/>
-  <extendedProperties name="enable.drill.series" value="true"/>
-  <sampleData>
-   <baseSampleData dataSetRepresentation="A, B, C"/>
-   <orthogonalSampleData dataSetRepresentation="5,4,12" seriesDefinitionIndex="0"/>
-  </sampleData>
-  <emptyMessage>
-   <caption value="This chart contains no data."/>
-   <background _body=",64,127,127,127"/>
-   <outline>
-    <color _body=",128,127,127,127"/>
-   </outline>
-  </emptyMessage>
-  <axes>
-   <title>
-    <background _nil="1"/>
-    <outline>
-     <color _nil="1"/>
-    </outline>
-   </title>
-   <associatedAxes primaryAxis="true">
-    <title>
-     <background _nil="1"/>
-     <outline>
-      <color _nil="1"/>
-     </outline>
-    </title>
-    <seriesDefinitions>
-     <query definition=""/>
-     <series _type="BarSeries" seriesIdentifier="Series 1" riser="0">
-      <label>
-       <background _nil="1"/>
-       <outline>
-        <color _nil="1"/>
-       </outline>
-      </label>
-      <dataDefinition definition="row[&quot;Artwork Supplier&quot;]">
-       <grouping/>
-      </dataDefinition>
-      <triggers condition="6">
-       <action type="1">
-        <value _type="TooltipValue" text="" delay="200"/>
-       </action>
-      </triggers>
-      <curveFitting _nil="1"/>
-     </series>
-    </seriesDefinitions>
-    <lineAttributes>
-     <color _nil="1"/>
-    </lineAttributes>
-    <label>
-     <background _nil="1"/>
-     <outline>
-      <color _nil="1"/>
-     </outline>
-    </label>
-    <majorGrid>
-     <lineAttributes>
-      <color _nil="1"/>
-     </lineAttributes>
-     <tickAttributes>
-      <color _nil="1"/>
-     </tickAttributes>
-    </majorGrid>
-    <minorGrid>
-     <lineAttributes>
-      <color _nil="1"/>
-     </lineAttributes>
-     <tickAttributes>
-      <color _nil="1"/>
-     </tickAttributes>
-    </minorGrid>
-    <origin>
-     <value _nil="1"/>
-    </origin>
-   </associatedAxes>
-   <seriesDefinitions>
-    <query definition=""/>
-    <series seriesIdentifier="">
-     <label>
-      <background _nil="1"/>
-      <outline>
-       <color _nil="1"/>
-      </outline>
-     </label>
-     <dataDefinition definition="row[&quot;ID&quot;]"/>
-     <curveFitting _nil="1"/>
-    </series>
-    <grouping enabled="true"/>
-   </seriesDefinitions>
-   <lineAttributes>
-    <color _nil="1"/>
-   </lineAttributes>
-   <label>
-    <background _nil="1"/>
-    <outline>
-     <color _nil="1"/>
-    </outline>
-   </label>
-   <majorGrid>
-    <lineAttributes>
-     <color _nil="1"/>
-    </lineAttributes>
-    <tickAttributes>
-     <color _nil="1"/>
-    </tickAttributes>
-   </majorGrid>
-   <minorGrid>
-    <lineAttributes>
-     <color _nil="1"/>
-    </lineAttributes>
-    <tickAttributes>
-     <color _nil="1"/>
-    </tickAttributes>
-   </minorGrid>
-   <origin>
-    <value _nil="1"/>
-   </origin>
-  </axes>
-  <rotation>
-   <angles/>
-  </rotation>
- </ChartWithAxes>
-</ActuateChart>
-]]></xml-property>
-            <property name="outputFormat">JS</property>
-            <property name="inheritColumns">true</property>
-            <property name="height">286.125pt</property>
-            <property name="width">572.25pt</property>
-            <property name="dataSet">Reports capacity info</property>
+        <table id="47">
+            <property name="dataSet">Data Set</property>
             <list-property name="boundDataColumns">
                 <structure>
                     <property name="name">TASK_GROUP_NAME</property>
@@ -380,13 +188,91 @@
                     <expression name="expression" type="javascript">dataSetRow["Artwork Supplier"]</expression>
                     <property name="dataType">integer</property>
                 </structure>
-                <structure>
-                    <property name="name">Capacity Booked</property>
-                    <text-property name="displayName">Capacity Booked</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["Capacity Booked"]</expression>
-                    <property name="dataType">integer</property>
-                </structure>
             </list-property>
-        </extended-item>
+            <column id="81"/>
+            <column id="82"/>
+            <column id="83"/>
+            <column id="84"/>
+            <column id="85"/>
+            <column id="86"/>
+            <header>
+                <row id="48">
+                    <cell id="49">
+                        <label id="50">
+                            <text-property name="text">TASK_GROUP_NAME</text-property>
+                        </label>
+                    </cell>
+                    <cell id="51">
+                        <label id="52">
+                            <text-property name="text">TASK_STATUS</text-property>
+                        </label>
+                    </cell>
+                    <cell id="53">
+                        <label id="54">
+                            <text-property name="text">LAYOUT_SUPPLIER</text-property>
+                        </label>
+                    </cell>
+                    <cell id="55">
+                        <label id="56">
+                            <text-property name="text">ID</text-property>
+                        </label>
+                    </cell>
+                    <cell id="57">
+                        <label id="58">
+                            <text-property name="text">VALUE</text-property>
+                        </label>
+                    </cell>
+                    <cell id="59">
+                        <label id="60">
+                            <text-property name="text">Artwork Supplier</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="61">
+                    <cell id="62">
+                        <data id="63">
+                            <property name="resultSetColumn">TASK_GROUP_NAME</property>
+                        </data>
+                    </cell>
+                    <cell id="64">
+                        <data id="65">
+                            <property name="resultSetColumn">TASK_STATUS</property>
+                        </data>
+                    </cell>
+                    <cell id="66">
+                        <data id="67">
+                            <property name="resultSetColumn">LAYOUT_SUPPLIER</property>
+                        </data>
+                    </cell>
+                    <cell id="68">
+                        <data id="69">
+                            <property name="resultSetColumn">ID</property>
+                        </data>
+                    </cell>
+                    <cell id="70">
+                        <data id="71">
+                            <property name="resultSetColumn">VALUE</property>
+                        </data>
+                    </cell>
+                    <cell id="72">
+                        <data id="73">
+                            <property name="resultSetColumn">Artwork Supplier</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="74">
+                    <cell id="75"/>
+                    <cell id="76"/>
+                    <cell id="77"/>
+                    <cell id="78"/>
+                    <cell id="79"/>
+                    <cell id="80"/>
+                </row>
+            </footer>
+        </table>
     </body>
 </report>
