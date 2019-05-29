@@ -4,7 +4,7 @@
     <dataDesignMap key="//@files.1" value="1"/>
   </files>
   <files xsi:type="com.actuate.istudio.analysis.model:DataDesign" name="capacity.datadesign" path="/JTI/Data Objects/capacity.datadesign">
-    <targetReportsMap key="//@files.2" value="1"/>
+    <targetReportsMap key="//@files.3" value="1"/>
     <targetDashboardsMap key="//@files.0" value="1"/>
     <dataSets name="Artwork Supplier">
       <columns name="ID"/>
@@ -18,7 +18,59 @@
       <columns name="Capacity Booked" expression="row[&quot;TASK_STATUS&quot;]"/>
     </dataSets>
   </files>
+  <files xsi:type="com.actuate.istudio.analysis.model:DataDesign" name="Capacity_media.datadesign" path="/JTI/Data Objects/Capacity_media.datadesign">
+    <targetReportsMap key="//@files.4" value="1"/>
+    <targetReportsMap key="//@files.5" value="1"/>
+    <dataSets name="Artwork Supplier">
+      <columns name="Layout Supplier"/>
+      <columns name="Max Capacity"/>
+    </dataSets>
+    <dataSets name="Asset Table" targetDataSets="//@files.4/@dataSets.0">
+      <columns name="TASK_GROUP_NAME" targetColumns="//@files.4/@dataSets.0/@columns.0"/>
+      <columns name="TASK_STATUS" targetColumns="//@files.4/@dataSets.0/@columns.1"/>
+      <columns name="LAYOUT_SUPPLIER" targetColumns="//@files.4/@dataSets.0/@columns.2"/>
+      <columns name="Artwork Supplier" expression="row[&quot;TASK_GROUP_NAME&quot;]" targetColumns="//@files.4/@dataSets.0/@columns.3"/>
+      <columns name="Capacity Booked" expression="row[&quot;TASK_STATUS&quot;]" targetColumns="//@files.4/@dataSets.0/@columns.4"/>
+    </dataSets>
+  </files>
   <files xsi:type="com.actuate.istudio.analysis.model:RptDesign" name="Capacity.rptdesign" path="/JTI/Report Designs/Capacity.rptdesign">
     <dataDesignMap key="//@files.1" value="1"/>
+  </files>
+  <files xsi:type="com.actuate.istudio.analysis.model:RptDesign" name="new_report_3.rptdesign" path="/JTI/Report Designs/new_report_3.rptdesign">
+    <dataDesignMap key="//@files.2" value="1"/>
+    <dataSets name="Asset Table" sourceDataSet="//@files.2/@dataSets.1">
+      <columns name="TASK_GROUP_NAME" sourceColumns="//@files.2/@dataSets.1/@columns.0"/>
+      <columns name="TASK_STATUS" sourceColumns="//@files.2/@dataSets.1/@columns.1"/>
+      <columns name="LAYOUT_SUPPLIER" sourceColumns="//@files.2/@dataSets.1/@columns.2"/>
+      <columns name="Artwork Supplier" sourceColumns="//@files.2/@dataSets.1/@columns.3"/>
+      <columns name="Capacity Booked" sourceColumns="//@files.2/@dataSets.1/@columns.4"/>
+    </dataSets>
+  </files>
+  <files xsi:type="com.actuate.istudio.analysis.model:RptDesign" name="Capacity_Media.rptdesign" path="/JTI/Report Designs/Capacity_Media.rptdesign">
+    <dataDesignMap key="//@files.2" value="1"/>
+  </files>
+  <files xsi:type="com.actuate.istudio.analysis.model:DataDesign" name="CapacityTest.datadesign" path="/JTI/Data Objects/CapacityTest.datadesign">
+    <targetReportsMap key="//@files.7" value="1"/>
+    <dataSets name="Reports capacity info" targetDataSets="//@files.7/@dataSets.0">
+      <columns name="TASK_GROUP_NAME" targetColumns="//@files.7/@dataSets.0/@columns.0"/>
+      <columns name="TASK_STATUS" targetColumns="//@files.7/@dataSets.0/@columns.1"/>
+      <columns name="LAYOUT_SUPPLIER" targetColumns="//@files.7/@dataSets.0/@columns.2"/>
+      <columns name="ID" targetColumns="//@files.7/@dataSets.0/@columns.3"/>
+      <columns name="VALUE" targetColumns="//@files.7/@dataSets.0/@columns.4"/>
+      <columns name="Artwork Supplier" targetColumns="//@files.7/@dataSets.0/@columns.5"/>
+      <columns name="Capacity Booked" targetColumns="//@files.7/@dataSets.0/@columns.6"/>
+    </dataSets>
+  </files>
+  <files xsi:type="com.actuate.istudio.analysis.model:RptDesign" name="CapacityTest.rptdesign" path="/JTI/Report Designs/CapacityTest.rptdesign">
+    <dataDesignMap key="//@files.6" value="1"/>
+    <dataSets name="Reports capacity info" sourceDataSet="//@files.6/@dataSets.0">
+      <columns name="TASK_GROUP_NAME" sourceColumns="//@files.6/@dataSets.0/@columns.0"/>
+      <columns name="TASK_STATUS" sourceColumns="//@files.6/@dataSets.0/@columns.1"/>
+      <columns name="LAYOUT_SUPPLIER" sourceColumns="//@files.6/@dataSets.0/@columns.2"/>
+      <columns name="ID" sourceColumns="//@files.6/@dataSets.0/@columns.3"/>
+      <columns name="VALUE" sourceColumns="//@files.6/@dataSets.0/@columns.4"/>
+      <columns name="Artwork Supplier" sourceColumns="//@files.6/@dataSets.0/@columns.5"/>
+      <columns name="Capacity Booked" sourceColumns="//@files.6/@dataSets.0/@columns.6"/>
+    </dataSets>
   </files>
 </com.actuate.istudio.analysis.model:Project>

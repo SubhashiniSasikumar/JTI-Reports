@@ -14,15 +14,15 @@
         </structure>
     </list-property>
     <data-sources>
-        <data-mart-data-source name="Data Source" id="123">
-            <property name="datamartURL">Data Objects/capacity</property>
+        <data-mart-data-source name="Data Source" id="4">
+            <property name="datamartURL">Data Objects/Capacity_media</property>
             <property name="accessType">transient</property>
         </data-mart-data-source>
     </data-sources>
     <property name="linkedDataModels">
-        <data-mart-linked-data-model name="Capacity" id="124">
+        <data-mart-linked-data-model name="Capacity_DM" id="5">
             <property name="dataSource">Data Source</property>
-            <property name="dataObject">Capacity</property>
+            <property name="dataObject">Capacity_DM</property>
         </data-mart-linked-data-model>
     </property>
     <page-setup>
@@ -37,11 +37,11 @@
         </simple-master-page>
     </page-setup>
     <body>
-        <extended-item extensionName="Chart" id="94">
+        <extended-item extensionName="Chart" id="19">
             <xml-property name="xmlRepresentation"><![CDATA[<ActuateChart version="2.6.1">
  <ChartWithAxes version="2.6.1" type="Bar Chart" subType="Side-by-side">
   <block>
-   <children _type="TitleBlock" visible="false">
+   <children _type="TitleBlock">
     <outline>
      <color _nil="1"/>
     </outline>
@@ -62,11 +62,10 @@
      </outline>
     </clientArea>
    </children>
-   <children _type="Legend" orientation="0" position="0">
+   <children _type="Legend">
     <outline>
      <color _nil="1"/>
     </outline>
-    <cursor type="0"/>
     <clientArea>
      <outline>
       <color _nil="1"/>
@@ -90,15 +89,13 @@
   <extendedProperties name="enable.area.alt" value="false"/>
   <extendedProperties name="enable.drill.category" value="true"/>
   <extendedProperties name="enable.drill.series" value="true"/>
-  <extendedProperties name="jschart.series.shadow" value="false"/>
   <sampleData>
-   <baseSampleData dataSetRepresentation="&#039;A&#039;,&#039;B&#039;,&#039;C&#039;,&#039;D&#039;,&#039;E&#039;"/>
+   <baseSampleData dataSetRepresentation="A, B, C"/>
    <orthogonalSampleData dataSetRepresentation="5,4,12" seriesDefinitionIndex="0"/>
    <orthogonalSampleData dataSetRepresentation="10.0,8.0,24.0" seriesDefinitionIndex="1"/>
    <orthogonalSampleData dataSetRepresentation="15.0,12.0,36.0" seriesDefinitionIndex="2"/>
    <orthogonalSampleData dataSetRepresentation="20.0,16.0,48.0" seriesDefinitionIndex="3"/>
   </sampleData>
-  <interactivity legendBehavior="1"/>
   <emptyMessage>
    <caption value="This chart contains no data."/>
    <background _body=",64,127,127,127"/>
@@ -106,7 +103,7 @@
     <color _body=",128,127,127,127"/>
    </outline>
   </emptyMessage>
-  <axes type="2">
+  <axes>
    <title>
     <background _nil="1"/>
     <outline>
@@ -122,14 +119,14 @@
     </title>
     <seriesDefinitions>
      <query definition=""/>
-     <series _type="BarSeries" seriesIdentifier="Maximum Capacity" riser="0">
+     <series _type="BarSeries" seriesIdentifier="Series 1" riser="0">
       <label>
        <background _nil="1"/>
        <outline>
         <color _nil="1"/>
        </outline>
       </label>
-      <dataDefinition definition="row[&quot;VALUE&quot;]">
+      <dataDefinition definition="row[&quot;Max Capacity&quot;]">
        <grouping enabled="true" aggregateExpression="Max"/>
       </dataDefinition>
       <triggers condition="6">
@@ -143,7 +140,7 @@
     </seriesDefinitions>
     <seriesDefinitions>
      <query definition=""/>
-     <series _type="BarSeries" seriesIdentifier="Artwork supplier" riser="0">
+     <series _type="BarSeries" seriesIdentifier="Series 2" riser="0">
       <label>
        <background _nil="1"/>
        <outline>
@@ -164,7 +161,7 @@
     </seriesDefinitions>
     <seriesDefinitions>
      <query definition=""/>
-     <series _type="BarSeries" seriesIdentifier="Capacity Booked" riser="0">
+     <series _type="BarSeries" seriesIdentifier="Series 3" riser="0">
       <label>
        <background _nil="1"/>
        <outline>
@@ -185,7 +182,7 @@
     </seriesDefinitions>
     <seriesDefinitions>
      <query definition=""/>
-     <series _type="BarSeries" seriesIdentifier="Free Capacity" riser="0">
+     <series _type="BarSeries" seriesIdentifier="Series 4" riser="0">
       <label>
        <background _nil="1"/>
        <outline>
@@ -242,7 +239,7 @@
        <color _nil="1"/>
       </outline>
      </label>
-     <dataDefinition definition="row[&quot;ID&quot;]"/>
+     <dataDefinition definition="row[&quot;Layout Supplier&quot;]"/>
      <curveFitting _nil="1"/>
     </series>
     <grouping enabled="true"/>
@@ -285,18 +282,18 @@
             <property name="outputFormat">JS</property>
             <property name="inheritColumns">true</property>
             <property name="height">286.125pt</property>
-            <property name="width">800pt</property>
+            <property name="width">572.25pt</property>
             <list-property name="boundDataColumns">
                 <structure>
-                    <property name="name">ID</property>
-                    <text-property name="displayName">ID</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["ID"]</expression>
+                    <property name="name">Layout Supplier</property>
+                    <text-property name="displayName">Layout Supplier</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Layout Supplier"]</expression>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="name">VALUE</property>
-                    <text-property name="displayName">VALUE</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["VALUE"]</expression>
+                    <property name="name">Max Capacity</property>
+                    <text-property name="displayName">Max Capacity</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Max Capacity"]</expression>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
@@ -314,13 +311,12 @@
                 <structure>
                     <property name="name">Free Capacity</property>
                     <text-property name="displayName">Free Capacity</text-property>
-                    <expression name="expression" type="javascript">data["VALUE"] - data["Capacity Booked"]</expression>
+                    <expression name="expression" type="javascript">data["Max Capacity"] - data["Capacity Booked"]</expression>
                     <property name="dataType">integer</property>
                     <property name="allowExport">true</property>
                 </structure>
             </list-property>
-            <property name="theme">ThemesReportItems31.Chart-Clean Blue</property>
-            <property name="linkedDataModel">Capacity</property>
+            <property name="linkedDataModel">Capacity_DM</property>
         </extended-item>
     </body>
 </report>

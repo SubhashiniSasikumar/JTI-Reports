@@ -14,17 +14,111 @@
         </structure>
     </list-property>
     <data-sources>
-        <data-mart-data-source name="Data Source" id="123">
-            <property name="datamartURL">Data Objects/capacity</property>
+        <data-mart-data-source name="Data Source" id="4">
+            <property name="datamartURL">Data Objects/Capacity_media</property>
             <property name="accessType">transient</property>
         </data-mart-data-source>
     </data-sources>
-    <property name="linkedDataModels">
-        <data-mart-linked-data-model name="Capacity" id="124">
+    <data-sets>
+        <data-mart-data-set name="Asset Table" id="5">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">TASK_GROUP_NAME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">TASK_GROUP_NAME</text-property>
+                    <text-property name="heading">TASK_GROUP_NAME</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">TASK_STATUS</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">TASK_STATUS</text-property>
+                    <text-property name="heading">TASK_STATUS</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">LAYOUT_SUPPLIER</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">LAYOUT_SUPPLIER</text-property>
+                    <text-property name="heading">LAYOUT_SUPPLIER</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Artwork Supplier</property>
+                    <property name="analysis">measure</property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Capacity Booked</property>
+                    <property name="analysis">measure</property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">TASK_GROUP_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">TASK_STATUS</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">LAYOUT_SUPPLIER</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">Artwork Supplier</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">Capacity Booked</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
             <property name="dataSource">Data Source</property>
-            <property name="dataObject">Capacity</property>
-        </data-mart-linked-data-model>
-    </property>
+            <property name="dataObject">Asset Table</property>
+            <list-property name="selectedColumns">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">TASK_GROUP_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">TASK_STATUS</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">LAYOUT_SUPPLIER</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">Artwork Supplier</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">Capacity Booked</property>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+        </data-mart-data-set>
+    </data-sets>
     <page-setup>
         <simple-master-page name="Simple MasterPage" id="2">
             <property name="orientation">auto</property>
@@ -37,11 +131,11 @@
         </simple-master-page>
     </page-setup>
     <body>
-        <extended-item extensionName="Chart" id="94">
+        <extended-item extensionName="Chart" id="7">
             <xml-property name="xmlRepresentation"><![CDATA[<ActuateChart version="2.6.1">
  <ChartWithAxes version="2.6.1" type="Bar Chart" subType="Side-by-side">
   <block>
-   <children _type="TitleBlock" visible="false">
+   <children _type="TitleBlock">
     <outline>
      <color _nil="1"/>
     </outline>
@@ -62,11 +156,10 @@
      </outline>
     </clientArea>
    </children>
-   <children _type="Legend" orientation="0" position="0">
+   <children _type="Legend">
     <outline>
      <color _nil="1"/>
     </outline>
-    <cursor type="0"/>
     <clientArea>
      <outline>
       <color _nil="1"/>
@@ -90,15 +183,11 @@
   <extendedProperties name="enable.area.alt" value="false"/>
   <extendedProperties name="enable.drill.category" value="true"/>
   <extendedProperties name="enable.drill.series" value="true"/>
-  <extendedProperties name="jschart.series.shadow" value="false"/>
   <sampleData>
-   <baseSampleData dataSetRepresentation="&#039;A&#039;,&#039;B&#039;,&#039;C&#039;,&#039;D&#039;,&#039;E&#039;"/>
+   <baseSampleData dataSetRepresentation="A, B, C"/>
    <orthogonalSampleData dataSetRepresentation="5,4,12" seriesDefinitionIndex="0"/>
    <orthogonalSampleData dataSetRepresentation="10.0,8.0,24.0" seriesDefinitionIndex="1"/>
-   <orthogonalSampleData dataSetRepresentation="15.0,12.0,36.0" seriesDefinitionIndex="2"/>
-   <orthogonalSampleData dataSetRepresentation="20.0,16.0,48.0" seriesDefinitionIndex="3"/>
   </sampleData>
-  <interactivity legendBehavior="1"/>
   <emptyMessage>
    <caption value="This chart contains no data."/>
    <background _body=",64,127,127,127"/>
@@ -106,7 +195,7 @@
     <color _body=",128,127,127,127"/>
    </outline>
   </emptyMessage>
-  <axes type="2">
+  <axes>
    <title>
     <background _nil="1"/>
     <outline>
@@ -122,28 +211,7 @@
     </title>
     <seriesDefinitions>
      <query definition=""/>
-     <series _type="BarSeries" seriesIdentifier="Maximum Capacity" riser="0">
-      <label>
-       <background _nil="1"/>
-       <outline>
-        <color _nil="1"/>
-       </outline>
-      </label>
-      <dataDefinition definition="row[&quot;VALUE&quot;]">
-       <grouping enabled="true" aggregateExpression="Max"/>
-      </dataDefinition>
-      <triggers condition="6">
-       <action type="1">
-        <value _type="TooltipValue" text="" delay="200"/>
-       </action>
-      </triggers>
-      <curveFitting _nil="1"/>
-     </series>
-     <grouping _nil="1"/>
-    </seriesDefinitions>
-    <seriesDefinitions>
-     <query definition=""/>
-     <series _type="BarSeries" seriesIdentifier="Artwork supplier" riser="0">
+     <series _type="BarSeries" seriesIdentifier="Series 1" riser="0">
       <label>
        <background _nil="1"/>
        <outline>
@@ -151,7 +219,7 @@
        </outline>
       </label>
       <dataDefinition definition="row[&quot;Artwork Supplier&quot;]">
-       <grouping enabled="true" aggregateExpression="Max"/>
+       <grouping/>
       </dataDefinition>
       <triggers condition="6">
        <action type="1">
@@ -160,39 +228,17 @@
       </triggers>
       <curveFitting _nil="1"/>
      </series>
-     <grouping _nil="1"/>
     </seriesDefinitions>
     <seriesDefinitions>
      <query definition=""/>
-     <series _type="BarSeries" seriesIdentifier="Capacity Booked" riser="0">
+     <series _type="BarSeries" seriesIdentifier="Series 2" riser="0">
       <label>
        <background _nil="1"/>
        <outline>
         <color _nil="1"/>
        </outline>
       </label>
-      <dataDefinition definition="row[&quot;Capacity Booked&quot;]">
-       <grouping enabled="true" aggregateExpression="Max"/>
-      </dataDefinition>
-      <triggers condition="6">
-       <action type="1">
-        <value _type="TooltipValue" text="" delay="200"/>
-       </action>
-      </triggers>
-      <curveFitting _nil="1"/>
-     </series>
-     <grouping _nil="1"/>
-    </seriesDefinitions>
-    <seriesDefinitions>
-     <query definition=""/>
-     <series _type="BarSeries" seriesIdentifier="Free Capacity" riser="0">
-      <label>
-       <background _nil="1"/>
-       <outline>
-        <color _nil="1"/>
-       </outline>
-      </label>
-      <dataDefinition definition="row[&quot;Free Capacity&quot;]">
+      <dataDefinition definition="row[&quot;Column Binding&quot;]">
        <grouping enabled="true" aggregateExpression="Max"/>
       </dataDefinition>
       <triggers condition="6">
@@ -242,7 +288,7 @@
        <color _nil="1"/>
       </outline>
      </label>
-     <dataDefinition definition="row[&quot;ID&quot;]"/>
+     <dataDefinition definition="row[&quot;TASK_STATUS&quot;]"/>
      <curveFitting _nil="1"/>
     </series>
     <grouping enabled="true"/>
@@ -285,19 +331,26 @@
             <property name="outputFormat">JS</property>
             <property name="inheritColumns">true</property>
             <property name="height">286.125pt</property>
-            <property name="width">800pt</property>
+            <property name="width">572.25pt</property>
+            <property name="dataSet">Asset Table</property>
             <list-property name="boundDataColumns">
                 <structure>
-                    <property name="name">ID</property>
-                    <text-property name="displayName">ID</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["ID"]</expression>
+                    <property name="name">TASK_GROUP_NAME</property>
+                    <text-property name="displayName">TASK_GROUP_NAME</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TASK_GROUP_NAME"]</expression>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="name">VALUE</property>
-                    <text-property name="displayName">VALUE</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["VALUE"]</expression>
-                    <property name="dataType">decimal</property>
+                    <property name="name">TASK_STATUS</property>
+                    <text-property name="displayName">TASK_STATUS</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TASK_STATUS"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">LAYOUT_SUPPLIER</property>
+                    <text-property name="displayName">LAYOUT_SUPPLIER</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["LAYOUT_SUPPLIER"]</expression>
+                    <property name="dataType">string</property>
                 </structure>
                 <structure>
                     <property name="name">Artwork Supplier</property>
@@ -312,15 +365,12 @@
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="name">Free Capacity</property>
-                    <text-property name="displayName">Free Capacity</text-property>
-                    <expression name="expression" type="javascript">data["VALUE"] - data["Capacity Booked"]</expression>
+                    <property name="name">Column Binding</property>
+                    <expression name="expression" type="javascript">row["Artwork Supplier"]-row["Capacity Booked"]</expression>
                     <property name="dataType">integer</property>
                     <property name="allowExport">true</property>
                 </structure>
             </list-property>
-            <property name="theme">ThemesReportItems31.Chart-Clean Blue</property>
-            <property name="linkedDataModel">Capacity</property>
         </extended-item>
     </body>
 </report>
