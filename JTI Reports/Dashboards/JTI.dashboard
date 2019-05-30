@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.8.0.v201804241733</property>
+    <property name="layoutPreference">auto layout</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">ThemesReportItems3.rptlibrary</property>
+            <property name="namespace">ThemesReportItems3</property>
+        </structure>
+    </list-property>
+    <data-sources>
+        <data-mart-data-source name="NewDataMartDataSource" id="12">
+            <property name="datamartURL">Data Objects/JTI</property>
+            <property name="datamartVersion">-1</property>
+            <property name="accessType">transient</property>
+        </data-mart-data-source>
+    </data-sources>
+    <property name="linkedDataModels">
+        <data-mart-linked-data-model name="NewDataMartDataSource::Capacity_DM" id="18">
+            <property name="dataSource">NewDataMartDataSource</property>
+            <property name="dataObject">Capacity_DM</property>
+        </data-mart-linked-data-model>
+    </property>
+    <body>
+        <extended-item extensionName="Crosstab" extensionVersion="3.7.0" name="Capacity - Data_03f1d4c2-4480-4c55-9c32-34c944316708"
+ id="15">
+            <property name="measures">
+                <extended-item extensionName="ComputedMeasureView" name="Max Capacity" id="57">
+                    <property name="measureName">Max Capacity</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="58">
+                            <property name="aggregationOnRow">Layout Supplier/Layout Supplier</property>
+                            <property name="backgroundColor">#FFFFFF</property>
+                            <property name="textAlign">right</property>
+                            <property name="content">
+                                <data id="61">
+                                    <property name="backgroundColor">#FFFFFF</property>
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">Max Capacity_Layout Supplier/Layout Supplier</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="59">
+                            <property name="content">
+                                <label id="60">
+                                    <text-property name="text">Max Capacity</text-property>
+                                </label>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="ComputedMeasureView" name="Artwork Supplier" id="62">
+                    <property name="measureName">Artwork Supplier</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="63">
+                            <property name="aggregationOnRow">Layout Supplier/Layout Supplier</property>
+                            <property name="backgroundColor">#FFFFFF</property>
+                            <property name="textAlign">right</property>
+                            <property name="content">
+                                <data id="66">
+                                    <property name="backgroundColor">#FFFFFF</property>
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">Artwork Supplier_Layout Supplier/Layout Supplier</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="64">
+                            <property name="content">
+                                <label id="65">
+                                    <text-property name="text">Artwork Supplier</text-property>
+                                </label>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="ComputedMeasureView" name="Capacity Booked" id="67">
+                    <property name="measureName">Capacity Booked</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="68">
+                            <property name="aggregationOnRow">Layout Supplier/Layout Supplier</property>
+                            <property name="backgroundColor">#FFFFFF</property>
+                            <property name="textAlign">right</property>
+                            <property name="content">
+                                <data id="71">
+                                    <property name="backgroundColor">#FFFFFF</property>
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">Capacity Booked_Layout Supplier/Layout Supplier</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="69">
+                            <property name="content">
+                                <label id="70">
+                                    <text-property name="text">Capacity Booked</text-property>
+                                </label>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="ComputedMeasureView" name="Free Capacity" id="72">
+                    <property name="measureName">Free Capacity</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="73">
+                            <property name="aggregationOnRow">Layout Supplier/Layout Supplier</property>
+                            <property name="backgroundColor">#FFFFFF</property>
+                            <property name="textAlign">right</property>
+                            <property name="content">
+                                <data id="76">
+                                    <property name="backgroundColor">#FFFFFF</property>
+                                    <structure name="numberFormat">
+                                        <property name="category">General Number</property>
+                                        <property name="pattern">General Number</property>
+                                    </structure>
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">Free Capacity</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="74">
+                            <property name="content">
+                                <label id="75">
+                                    <text-property name="text">Free Capacity</text-property>
+                                </label>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <list-property name="userProperties">
+                        <structure>
+                            <property name="name">__DA_CALCULATION_PARAM_ARG2</property>
+                            <property name="type">string</property>
+                        </structure>
+                        <structure>
+                            <property name="name">__DA_CALCULATION_FUNCTION</property>
+                            <property name="type">string</property>
+                        </structure>
+                        <structure>
+                            <property name="name">__DA_CALCULATION_PARAM_ARG1</property>
+                            <property name="type">string</property>
+                        </structure>
+                    </list-property>
+                    <property name="__DA_CALCULATION_PARAM_ARG2">[Capacity Booked_Layout Supplier/Layout Supplier]</property>
+                    <property name="__DA_CALCULATION_FUNCTION">DIFFERENCE</property>
+                    <property name="__DA_CALCULATION_PARAM_ARG1">[Max Capacity_Layout Supplier/Layout Supplier]</property>
+                </extended-item>
+            </property>
+            <property name="rows">
+                <extended-item extensionName="CrosstabView" id="32">
+                    <property name="views">
+                        <extended-item extensionName="DimensionView" id="34">
+                            <property name="dimension">Layout Supplier</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View" id="35">
+                                    <property name="level">Layout Supplier/Layout Supplier</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="36">
+                                            <property name="content">
+                                                <data name="Layout Supplier" id="37">
+                                                    <property name="resultSetColumn">Layout Supplier</property>
+                                                </data>
+                                            </property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="columns">
+                <extended-item extensionName="CrosstabView" id="33"/>
+            </property>
+            <property name="header">
+                <extended-item extensionName="CrosstabCell" id="16">
+                    <property name="content">
+                        <label id="38">
+                            <text-property name="text">Layout Supplier</text-property>
+                        </label>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="rowPageBreakInterval">40</property>
+            <property name="columnPageBreakInterval">10</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Layout Supplier</property>
+                    <expression name="expression">dataSetRow["Layout Supplier"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Max Capacity_Layout Supplier/Layout Supplier</property>
+                    <text-property name="displayName">Max Capacity</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Max Capacity"]</expression>
+                    <property name="dataType">decimal</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Layout Supplier/Layout Supplier</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">max</property>
+                </structure>
+                <structure>
+                    <property name="name">Artwork Supplier_Layout Supplier/Layout Supplier</property>
+                    <text-property name="displayName">Artwork Supplier</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Artwork Supplier"]</expression>
+                    <property name="dataType">integer</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Layout Supplier/Layout Supplier</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">max</property>
+                </structure>
+                <structure>
+                    <property name="name">Capacity Booked_Layout Supplier/Layout Supplier</property>
+                    <text-property name="displayName">Capacity Booked</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Capacity Booked"]</expression>
+                    <property name="dataType">integer</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Layout Supplier/Layout Supplier</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">max</property>
+                </structure>
+                <structure>
+                    <property name="name">Free Capacity</property>
+                    <expression name="expression" type="bre">([Max Capacity_Layout Supplier/Layout Supplier]) -[Capacity Booked_Layout Supplier/Layout Supplier]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+            </list-property>
+            <property name="theme">ThemesReportItems3.modern-crosstab</property>
+            <property name="linkedDataModel">NewDataMartDataSource::Capacity_DM</property>
+            <list-property name="userProperties">
+                <structure>
+                    <property name="name">__DA_USE_DEFAULT_HYPERLINK</property>
+                    <property name="type">boolean</property>
+                </structure>
+                <structure>
+                    <property name="name">__DA_ENABLE_PAGEBREAK</property>
+                    <property name="type">boolean</property>
+                </structure>
+            </list-property>
+            <property name="__DA_USE_DEFAULT_HYPERLINK">true</property>
+            <property name="__DA_ENABLE_PAGEBREAK">true</property>
+        </extended-item>
+    </body>
+    <property name="dashboardView">
+        <dashboard id="2">
+            <property name="activeTab">180a3b33-87c3-4efd-af27-ac689d7b111c</property>
+            <property name="tabs">
+                <tab-element name="180a3b33-87c3-4efd-af27-ac689d7b111c" id="3">
+                    <property name="title">Capacity</property>
+                    <property name="sections">
+                        <section id="4">
+                            <property name="width">100%</property>
+                            <property name="gadgets">
+                                <gadget name="Gadget_adde4811-87cc-4e42-bd99-d096cc50366b" id="54">
+                                    <property name="title">Layout Supplier</property>
+                                    <property name="showTitle">true</property>
+                                    <property name="showBorder">true</property>
+                                    <property name="zIndex">4</property>
+                                    <property name="showScrollBar">false</property>
+                                    <property name="height">52px</property>
+                                    <property name="caption">
+                                        <gadget-caption id="55">
+                                            <property name="showCaption">true</property>
+                                            <property name="horizontalAlignment">left</property>
+                                            <property name="fontFamily">"Lato"</property>
+                                            <property name="fontSize">14pt</property>
+                                            <property name="fontWeight">normal</property>
+                                            <property name="fontStyle">normal</property>
+                                            <property name="color">#353535</property>
+                                            <property name="textUnderline">none</property>
+                                        </gadget-caption>
+                                    </property>
+                                    <property name="content">
+                                        <check-box-data-selector id="56">
+                                            <property name="linkedDataModel">NewDataMartDataSource::Capacity_DM</property>
+                                            <property name="operator">in</property>
+                                            <simple-property-list name="columnNames">
+                                                <value>Layout Supplier</value>
+                                                <value>Layout Supplier</value>
+                                            </simple-property-list>
+                                            <property name="orientation">horizontal</property>
+                                            <property name="autoAdjust">false</property>
+                                            <property name="autoAdjustNumber">3</property>
+                                            <property name="listLimit">1000</property>
+                                        </check-box-data-selector>
+                                    </property>
+                                    <property name="observers">
+                                        <event-subscriber>
+                                            <property name="eventName">SELECT_EVENT:SEMANTIC_filter</property>
+                                            <property name="eventObjects">
+                                                <event-object>
+                                                    <property name="gadget">Gadget_9a402b0f-f235-4a17-80e6-2a6c94fa1ca3</property>
+                                                    <property name="dirty">false</property>
+                                                </event-object>
+                                                <event-object>
+                                                    <property name="gadget">f7d977a8-310c-4541-8aae-8cccb96c6fa8</property>
+                                                    <property name="dirty">false</property>
+                                                </event-object>
+                                            </property>
+                                        </event-subscriber>
+                                    </property>
+                                </gadget>
+                                <gadget name="Gadget_c8b67cf5-38dc-4d4a-9794-37e0a1340281" id="9">
+                                    <property name="title">Capacity - Reports</property>
+                                    <property name="externalGadgetURI">^/Report Designs/Capacity.rptdesign</property>
+                                    <property name="showTitle">true</property>
+                                    <property name="showBorder">true</property>
+                                    <property name="zIndex">2</property>
+                                    <property name="showScrollBar">false</property>
+                                    <property name="caption">
+                                        <gadget-caption id="10">
+                                            <property name="showCaption">true</property>
+                                            <property name="horizontalAlignment">left</property>
+                                            <property name="fontFamily">"Lato"</property>
+                                            <property name="fontSize">14pt</property>
+                                            <property name="color">#353535</property>
+                                        </gadget-caption>
+                                    </property>
+                                    <property name="content">
+                                        <data-view id="11">
+                                            <list-property name="userProperties">
+                                                <structure>
+                                                    <property name="name">showViewerToolbar</property>
+                                                    <property name="type">boolean</property>
+                                                </structure>
+                                            </list-property>
+                                            <property name="showViewerToolbar">true</property>
+                                            <property name="gadgetType">viewer</property>
+                                            <property name="externalContentRef">
+                                                <external-element-ref>
+                                                    <property name="sourceFile">^/Report Designs/Capacity.rptdesign</property>
+                                                </external-element-ref>
+                                            </property>
+                                        </data-view>
+                                    </property>
+                                </gadget>
+                                <gadget name="Gadget_9a402b0f-f235-4a17-80e6-2a6c94fa1ca3" id="13">
+                                    <property name="title">Capacity - Data</property>
+                                    <property name="showTitle">true</property>
+                                    <property name="showBorder">true</property>
+                                    <property name="zIndex">3</property>
+                                    <property name="showScrollBar">true</property>
+                                    <structure name="autoRefresh">
+                                        <property name="measure">5</property>
+                                        <property name="unit">minute</property>
+                                    </structure>
+                                    <property name="height">102px</property>
+                                    <property name="caption">
+                                        <gadget-caption id="14">
+                                            <property name="showCaption">true</property>
+                                            <property name="horizontalAlignment">left</property>
+                                            <property name="fontFamily">"Lato"</property>
+                                            <property name="fontSize">14pt</property>
+                                            <property name="fontWeight">normal</property>
+                                            <property name="fontStyle">normal</property>
+                                            <property name="color">#353535</property>
+                                            <property name="textUnderline">none</property>
+                                        </gadget-caption>
+                                    </property>
+                                    <property name="content">
+                                        <data-view id="17">
+                                            <list-property name="userProperties">
+                                                <structure>
+                                                    <property name="name">showViewerToolbar</property>
+                                                    <property name="type">boolean</property>
+                                                </structure>
+                                            </list-property>
+                                            <property name="showViewerToolbar">true</property>
+                                            <property name="gadgetType">viewer</property>
+                                            <property name="internalReportLetRef">Capacity - Data_03f1d4c2-4480-4c55-9c32-34c944316708</property>
+                                        </data-view>
+                                    </property>
+                                    <property name="subscribeTo">
+                                        <event-subscriber>
+                                            <property name="eventName">SELECT_EVENT:SEMANTIC_filter</property>
+                                            <property name="eventObjects">
+                                                <event-object>
+                                                    <property name="gadget">Gadget_adde4811-87cc-4e42-bd99-d096cc50366b</property>
+                                                    <property name="dirty">false</property>
+                                                </event-object>
+                                            </property>
+                                        </event-subscriber>
+                                    </property>
+                                </gadget>
+                                <gadget name="f7d977a8-310c-4541-8aae-8cccb96c6fa8" id="6">
+                                    <property name="zIndex">1</property>
+                                    <property name="isVisible">false</property>
+                                    <property name="height">150px</property>
+                                    <property name="caption">
+                                        <gadget-caption id="8">
+                                            <property name="showCaption">true</property>
+                                            <property name="horizontalAlignment">left</property>
+                                            <property name="fontFamily">"tahoma", "arial", "verdana", sans-serif</property>
+                                            <property name="fontSize">8pt</property>
+                                            <property name="fontWeight">bold</property>
+                                            <property name="color">#000000</property>
+                                        </gadget-caption>
+                                    </property>
+                                    <property name="content">
+                                        <current-selections id="7"/>
+                                    </property>
+                                    <property name="subscribeTo">
+                                        <event-subscriber>
+                                            <property name="eventName">SELECT_EVENT:SEMANTIC_filter</property>
+                                            <property name="eventObjects">
+                                                <event-object>
+                                                    <property name="gadget">Gadget_adde4811-87cc-4e42-bd99-d096cc50366b</property>
+                                                    <property name="dirty">false</property>
+                                                </event-object>
+                                            </property>
+                                        </event-subscriber>
+                                    </property>
+                                </gadget>
+                            </property>
+                        </section>
+                    </property>
+                </tab-element>
+            </property>
+        </dashboard>
+    </property>
+</report>
