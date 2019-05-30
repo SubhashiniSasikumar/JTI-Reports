@@ -1,0 +1,78 @@
+<script type="text/javascript" src="mergePDF.js"></script>
+<!-- <link href="jquery.easy_slides.css" rel="stylesheet" type="text/css" /> -->
+<link rel="stylesheet" type="text/css" href="./mergePDF.css" />
+
+<!-- <script src="jquery.easy_slides.js"></script> -->
+
+
+<template ot-template id="MergePDFContent" ot-view="MergePDF">
+
+
+    <body  style="background-color: whitesmoke">
+        <div style="width:80%">
+            <div class="ot-table-element ot-tasks-inspector-link " name="thumbnail" role="gridcell" style="width: 500px;display:  inline-block;">
+               
+                <ot-resource>   
+                    <div class="mail-fields">
+                        <ot-i18n ot-token="From" parsed="true">From</ot-i18n>
+                        <label> *</label>
+                        <h3>acherondemo@gmail.com</h3>
+                    </div>
+                    
+                <div class="mail-fields">
+                    <ot-i18n ot-token="To" parsed="true">To</ot-i18n>
+                    <label> *</label>
+                    <ot-metadata data-edit-type="string" ot-fields="mailto" editable="" ot-required ot-field-size="1000" data-value="" data-type="string"
+                        ot-display-typeahead-no-results="" data-display-value="" ot-edit-mode="edit" data-request-from-validation="true"
+                        class="ot-metadata-editor">
+                    </ot-metadata>
+                </div>
+
+                <div class="mail-fields">
+                    <ot-i18n ot-token="CC" parsed="true">CC</ot-i18n>
+                    <ot-metadata data-edit-type="string" ot-fields="mailcc" editable="" ot-required ot-field-size="1000" data-value="" data-type="string"
+                        ot-display-typeahead-no-results="" data-display-value="" ot-edit-mode="edit" data-request-from-validation="true"
+                        class="ot-metadata-editor">
+                    </ot-metadata>
+                </div>
+
+                <div class="mail-fields">
+                    <ot-i18n ot-token="Subject Line" parsed="true">Subject Line</ot-i18n>
+                    <label> *</label>
+                    <ot-metadata data-edit-type="string" ot-fields="mailsubject" editable="" ot-required ot-field-size="500" data-value="" data-type="string"
+                        ot-display-typeahead-no-results="" data-display-value="" ot-edit-mode="edit" data-request-from-validation="true"
+                        class="ot-metadata-editor">
+                    </ot-metadata>
+                </div>
+
+                <div class="mail-fields">
+                    <ot-i18n ot-token="Message Body" parsed="true">Message Body</ot-i18n>
+                    <ot-metadata data-edit-type="textarea" ot-fields="mailbody" editable="" ot-required ot-field-size="10000" data-value="" data-type="string"
+                        ot-display-typeahead-no-results="" data-display-value="" ot-edit-mode="edit" data-request-from-validation="true"
+                        class="ot-metadata-editor">
+                    </ot-metadata>
+                </div>
+            </div>
+        </ot-resource>
+            <div style="width: 80%;display: inline-block;">
+               
+               
+            </div>
+        </div>
+    </body>
+
+    <div class="ot-modal-dialog-footer">
+    <div class="ot-modal-dialog-footer-buttons">
+        <!-- <button  type="submit" class="ot-button ls-newRequest-submissionButton" onclick="MergePDF.launchBrightcoveJob(this)"> -->
+                <button  type="submit" class="ot-button ls-newRequest-submissionButton" onclick="MergePDF.getMergedPDF(this)">
+            <ot-i18n>Send Email</ot-i18n>
+        </button>
+        <button type="button" class="ot-button secondary" onclick="otui.DialogUtils.cancelDialog(this)">
+            <ot-i18n>Cancel</ot-i18n>
+        </button>
+    </div>
+   </div>
+
+</template>
+
+<script type="text/javascript" src="../ui/import.js"></script>
