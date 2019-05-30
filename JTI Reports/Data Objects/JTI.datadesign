@@ -20,9 +20,9 @@
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">com.actuate.jdbc.sqlserver.SQLServerDriver</property>
-            <property name="odaURL">jdbc:actuate:sqlserver://192.168.1.35;database=otmm</property>
-            <property name="odaUser">OTMM</property>
-            <encrypted-property name="odaPassword" encryptionID="jce">1219f1ab79ba269aa295eb2d060eeee5</encrypted-property>
+            <property name="odaURL">jdbc:actuate:sqlserver://MSFWEP01-SQL-38;database=otmm_165</property>
+            <property name="odaUser">otmm_165</property>
+            <encrypted-property name="odaPassword" encryptionID="jce">05154caa5be94d9b4221fe84bb6df8ae</encrypted-property>
         </oda-data-source>
     </data-sources>
     <data-sets>
@@ -45,6 +45,7 @@
                     <property name="compressed">false</property>
                 </structure>
             </list-property>
+            <list-property name="parameters"/>
             <structure name="cachedMetaData">
                 <list-property name="resultSet">
                     <structure>
@@ -78,7 +79,7 @@
             </list-property>
             <xml-property name="queryText"><![CDATA[select ID as "Layout Supplier",
        Value as "Max Capacity"
-from  otmm.JTI_ARTWORK_SUPPLIER_LKTB]]></xml-property>
+from  otmm_165.JTI_ARTWORK_SUPPLIER_LKTB]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
   <Version>2.0</Version>
@@ -194,6 +195,7 @@ from  otmm.JTI_ARTWORK_SUPPLIER_LKTB]]></xml-property>
                     <property name="analysis">measure</property>
                 </structure>
             </list-property>
+            <list-property name="parameters"/>
             <structure name="cachedMetaData">
                 <list-property name="resultSet">
                     <structure>
@@ -250,7 +252,7 @@ from  otmm.JTI_ARTWORK_SUPPLIER_LKTB]]></xml-property>
             <xml-property name="queryText"><![CDATA[select TASK_GROUP_NAME,
        TASK_STATUS,
        'JTI' AS LAYOUT_SUPPLIER
-from otmm.MPM_ASSET_TABLE]]></xml-property>
+from otmm_165.MPM_ASSET_TABLE]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
   <Version>2.0</Version>
