@@ -6,8 +6,10 @@
     var _withdrawElement;
     var resource;
     var _assets = [];
-    var mailToString = "";
-    var mailCCString = "";
+    var mailTo = "";
+    var maillCC = "";
+    var mailToString = [];
+    var mailCCString = [];
     var mailSubjectString = "";
     var mailBodyString = "";
     var mimeType = false;
@@ -63,8 +65,8 @@
         view.getSelectedAssets(function (assets) {// Only give us the asset IDs
 
             for (var i = 0; i < assets.length; i++) {
-                var allMimeTypes=[];
-          
+                var allMimeTypes = [];
+
                 $.ajax({
                     type: "GET",
                     url: otui.service + "/assets/" + assets[i],
@@ -89,35 +91,34 @@
                         console.log(data.asset_resource.asset.mime_type);
                     }
 
-                    if(allMimeTypes.length==assets.length)
-                    {
+                    if (allMimeTypes.length == assets.length) {
                         console.log(allMimeTypes)
                         if (assets.length < 2) {
                             showAlert("Please select more than 1 asset to merge .", true);
                         }
-                        else  if(allMimeTypes.every( (val, i, allMimeTypes) => val == "application/pdf" ) ){
+                        else if (allMimeTypes.every((val, i, allMimeTypes) => val == "application/pdf")) {
                             _assetId = assets[0];
                             _assets = assets;
                             assetIdList = "";
                             for (var i = 0; i < assets.length; i++) {
                                 if (assets.length > 1 && i != 0) {
                                     assetIdList += ",";
-            
+
                                 }
                                 assetIdList += '"';
                                 assetIdList += assets[i];
                                 assetIdList += '"';
                             }
-            
+
                             mergePDFAssetImg(_assetId);
                         }
-            
+
                         else {
-                            showAlert("Please select only pdfs .", true);
-                           
+                            showAlert("Kindly Select only PDFs .", true);
+
                         }
                     }
-              
+
 
 
                 }).fail(function (data) {
@@ -125,44 +126,12 @@
                 });
             }
 
-         
+
 
         });
 
     }
 
-    function getAssetMimeType(assetID) {
-        $.ajax({
-            type: "GET",
-            url: otui.service + "/assets/" + assetID,
-            cache: false,
-            crossDomain: true,
-            dataType: 'json',
-            xhrFields: {
-                withCredentials: true
-            }
-        }).then(function (data) {
-
-            if (data.asset_resource.asset.type) {
-                console.log("type  " + data.asset_resource.asset.type);
-                container = true;
-                mimeType = false;
-            }
-            else if (data.asset_resource.asset.mime_type != "application/pdf") {
-                // console.log("type  " + data.asset_resource.asset.mime_type );
-                container = false;
-                mimeType = false;
-            }
-            else if (data.asset_resource.asset.mime_type == "application/pdf") {
-                container = false;
-                mimeType = true;
-            }
-
-            //    console.log("container " + container + "mimetype " + mimeType);
-        }).fail(function (data) {
-            console.log("fail")
-        });
-    }
 
     this.assetID = _assetId;
 
@@ -193,6 +162,10 @@
         }
     }
 
+    function validateEmail(email) {
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    }
 
     MergePDF.getMergedPDF = function (el) {
         var self = this
@@ -213,22 +186,43 @@
                 formFilds[dataName] = dataValue
             })
         }
-        mailToString = formFilds['mailto'];
-        mailCCString = formFilds['mailcc'];
+        mailTo = formFilds['mailto'];
+        maillCC = formFilds['mailcc'];
+        mailToString = formFilds['mailto'].split(",");
+        mailCCString = formFilds['mailcc'].split(",");
         mailSubjectString = formFilds['mailsubject'];
         mailBodyString = formFilds['mailbody'];
 
-        console.log("mail to " + mailToString + mailCCString + mailSubjectString + mailBodyString);
-
         var asset = [];
-        if (!formFilds['mailto'] || formFilds['mailto'].length == 0 || !formFilds['mailsubject'] || formFilds['mailsubject'].length == 0) {
+        if (mailToString.length == 0 || !formFilds['mailsubject'] || formFilds['mailsubject'].length == 0) {
             showAlert("Kindly Enter all the Mandatory Fields ");
 
 
         }
         else {
-            MergePDF.mergePDFJob(el);
+            var isInValidMail = false;
+            for (var i = 0; i < mailToString.length; i++) {
+                if (!validateEmail(mailToString[i])) {
+                    showAlert("Kindly Enter Valid To Email Address");
+                    isInValidMail = true;
+                    break;
+                }
+            }
+            if (mailCCString!="" && mailCCString.length > 0 && !isInValidMail) {
+                for (var i = 0; i < mailCCString.length; i++) {
+                    if (mailCCString!=null && !validateEmail(mailCCString[i])) {
+                        showAlert("Kindly Enter Valid CC Email Address");
+                        isInValidMail = true;
+                        break;
+                    }
+                }
+            }
+            if (!isInValidMail) {
+                MergePDF.mergePDFJob(el);
+            }
+
         }
+        
     }
 
     MergePDF.mergePDFJob = function (el) {
@@ -239,7 +233,7 @@
         var serviceUrl = otui.service + "/jobs";
 
 
-        var jobRequestParam = '{"job_request_param": { "job_request": { "asset_ids":[' + assetIdList + ' ], "job_type": "mergePDF","job_context_map" :[{ "key" :"To","value": {"type": "string","value": "' + mailToString + '"}},{ "key" :"CC","value": {"type": "string","value": "' + mailCCString + '"}},{ "key" :"Subject","value": {"type": "string","value": "' + mailSubjectString + '"}},{"key" :"Body","value": {"type": "string","value": "' + mailBodyString + '"}}]}}}';
+        var jobRequestParam = '{"job_request_param": { "job_request": { "asset_ids":[' + assetIdList + ' ], "job_type": "mergePDF","job_context_map" :[{ "key" :"To","value": {"type": "string","value": "' + mailTo + '"}},{ "key" :"CC","value": {"type": "string","value": "' + mailCC + '"}},{ "key" :"Subject","value": {"type": "string","value": "' + mailSubjectString + '"}},{"key" :"Body","value": {"type": "string","value": "' + mailBodyString + '"}}]}}}';
         console.log(jobRequestParam);
         console.log("assets " + _assets);
         var data = "job_request=" + jobRequestParam;
